@@ -62,7 +62,7 @@
       // Use this array to dynamically create buttons on the screen.
       var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 
-
+      
       // MAJOR TASK #1: DYNAMICALLY CREATE BUTTONS
       // =================================================================================
 
@@ -107,7 +107,9 @@
       // Inside the on-click event...
 
       // 13. Use the jQuery "empty()" method to clear the contents of the "#display" div.
-
+      $("#clear").on('click', function() {
+        $("#display").empty()
+      })
     });
   </script>
 </body>
