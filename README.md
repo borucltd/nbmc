@@ -1,15 +1,20 @@
-### File
+# New York Times Article Search - Phase 01
 
-* [`fridge`](Unsolved/fridge.html)
+## Front-End Team
+![nyt-search](Images/nyt.png)
 
-### Instructions
+* Create the layout for the design above. Feel free to use Bootstrap or to do something more customized of your own.
 
-* Working in groups of 3, complete the code for the fridge activity such that:
+* Make sure to organize your code so as to have the necessary IDs.
 
-  1. JavaScript dynamically generates buttons for each of the letters on the screen.
+* Incorporate text boxes for capturing User Input. Then research how to retrieve the input values in JavaScript
 
-  2. Clicking any of the buttons leads the SAME letter to be displayed on the screen.
+## Back-End Team
 
-  3. Hitting the clear button erases all of the letters from the fridge.
+* Do preliminary research on the [API](http://developer.nytimes.com/article_search_v2.json).
 
-* **NOTE:** This is a challenging exercise. You may want one person to type, while the other two watch over to catch bugs and/or research necessary snippets.
+* Register for an API Key.
+
+* Understand what format the URL should look like to make an Article Call. (Hint: Use the API Console!!)
+
+* Experiment with console logging various fields.
