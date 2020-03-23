@@ -1,0 +1,33 @@
+body {
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.content {
+    width: 80%;
+    height: 80%;
+}
+
+.nav {
+    height: 15%;
+    width: 100%;
+    background: #95afc0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    height: 85%;
+    width: 100%;
+    background: #dff9fb;
+}
+
+.input-space {
+    margin: 12px 0;
+}
