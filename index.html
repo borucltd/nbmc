@@ -28,22 +28,32 @@
 
 
   <script type="text/javascript">
+
+
+var numberOfRecords = 5 ;
+var pubYear = 2018;
+var endyear = 2020;
+var articleTitle = "London";
   
+
   $("button").on("click", function() {
       
 
       var apiKey = "hZAJSehYQdMwKWp10jtjs4UMDte79ERW";
       
-      var articleTitle = "London";
-      var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + articleTitle + "&api-key="+apiKey;
+      
+      var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + articleTitle + "&api-key=" + apiKey + "&fq=pub_year:" + pubYear ;
+
+   
 
       $.ajax({
         url: queryURL,
         method: "GET"
       })
-        .then(function(response) {
-          var results = response;
+        .then(function(data) {
 
+            console.log(data);
+          var results =data.response.docs[0];
           console.log(results);
         });
     });
