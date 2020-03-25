@@ -19,7 +19,7 @@
                         <div class="input-space">
                             <label for="basic-url">Search Term:</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                                <input type="text" class="form-control" id="searchTerm" aria-describedby="basic-addon3">
                             </div>  
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="input-space">
                         <label for="basic-url">Number of Records to Retrieve:</label>
                         <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                        <input type="text" class="form-control" id="recordsNumber" aria-describedby="basic-addon3">
                     </div>
                 </div>
                 </div>
@@ -39,7 +39,7 @@
                     <div class="input-space">
                         <label for="basic-url">Start Year (Optional):</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                            <input type="text" class="form-control" id="startYear" aria-describedby="basic-addon3">
                         </div>  
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                     <div class="input-space">
                         <label for="basic-url">End Year (Optional):</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                            <input type="text" class="form-control" id="endYear" aria-describedby="basic-addon3">
                         </div>  
                     </div>
                 </div>
@@ -57,11 +57,80 @@
             <div class="row">
                 <div class="col">
                     <div class="input-space">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">Search</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="searchButton">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="output-space" id="output">
+                    
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    $("document").ready(function() {
+
+     
+
+          $("#searchButton").on("click", function() {
+
+            // read variables
+            var numberOfRecords = $("#recordsNumber").val() ;
+            var pubYear = $("#startYear").val();
+            var endYear = $("#endYear").val();
+            var articleTitle = $("#searchTerm").val();
+          
+            console.log(numberOfRecords + pubYear + endYear + articleTitle);
+              
+            var apiKey = "hZAJSehYQdMwKWp10jtjs4UMDte79ERW";
+            var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + articleTitle + "&api-key=" + apiKey + "&fq=pub_year:" + pubYear ;
+        
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+            .then(function(data) {
+                
+                        
+                for (var i=0 ; i< numberOfRecords ; i ++ ){
+              
+                    
+                    let p = $("<p>");
+                    p.text(JSON.stringify(data.response.docs[i]));
+                    $("#output").append( p );
+
+            }
+
+            console.log()
+                 
+                });
+            });
+
+
+
+
+    
+    });
+    </script>
+
+
+
+
+
+
+
+
+
+        
+        
+          
 </body>
+
 </html>
